@@ -1,70 +1,127 @@
-# Getting Started with Create React App
+In this project let's build a Movies App by applying the concepts we have learned till now. This project allows you to practice the concepts and techniques learned till React Course and apply them in a concrete project.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+You will demonstrate your skills by creating an app that will fetch data from an internal server using a class component, displaying that data, using component lifecycle methods, routing concepts, authentication, and authorization, and adding responsiveness to the website.
 
-## Available Scripts
+This is an individual assessment. All work must be your own.
 
-In the project directory, you can run:
+Prerequisites
+UI Prerequisites
+Click to view
+Design Files
+Click to view
+Set Up Instructions
+Click to view
+Completion Instructions
+Functionality to be added
 
-### `npm start`
+The app must have the following functionalities
+Login Route
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+When an invalid username and password are provided and the Login button is clicked, then the respective error message received from the response should be displayed
+When a valid username and password are provided and the Login button is clicked, then the page should be navigated to the Home Route
+When an unauthenticated user tries to access the Home Route, Popular Route, Search Route, Account Route and Movie Item Details Route, then the page should be navigated to Login Route
+When an authenticated user tries to access the Home Route, Popular Route, Search Route, Account Route and Movie Item Details Route, then the page should be navigated to the respective route
+When an authenticated user tries to access the Login Route, then the page should be navigated to the Home Route
+Home Route
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+When an authenticated user opens the Home Route,
 
-### `npm test`
+An HTTP Get request should be made to Trending Now Movies API URL, Originals API URL with jwt_token in the Cookies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Loader should be displayed while fetching the each data
+After the data is successfully fetched from both the API's
+A random movie title and movie poster with its details should be displayed from the Originals Response
+Display the list of movies received from the Trending Now Movies Response
+Display the list of movies received from the Originals Response
+If any of the HTTP GET request made is unsuccessful, then the failure view given in the Figma screens should be displayed respectively
+When the Try Again button is clicked, then the respective HTTP GET request should be made
+When a Movie item is clicked, then the page should be navigated to the Movie Item Details Route
 
-### `npm run build`
+Header
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+When the Movies logo in the header is clicked, then the page should be navigated to the Home Route
+When the Home link in the Header is clicked, then the page should be navigated to the Home Route
+When the Popular link in the header is clicked, then the page should be navigated to the Popular Route
+When the Search icon in the header is clicked, then the page should be navigated to the Search Route
+When the Profile logo in the header is clicked, then the page should be navigated to the Account Route
+Popular Route
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+When an authenticated user opens the Popular Route
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+An HTTP GET request should be made to Popular Movies API URL with jwt_token in the Cookies
 
-### `npm run eject`
+Loader should be displayed while fetching the data
+After the data is fetched successfully, the response received should be displayed
+If the HTTP GET request made is unsuccessful, then the failure view given in the Figma screens should be displayed
+When the Try Again button is clicked, an HTTP GET request should be made to Popular Movies API URL
+When a Movie item is clicked, then the page should be navigated to the Movie Item Details Route
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+All the header functionalities mentioned in the Home Route should work in this route accordingly
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Movie Item details Route
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+When an authenticated user opens the Movie Item Details Route
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+An HTTP GET request should be made to Movie Item Details API URL with jwt_token in the Cookies
 
-## Learn More
+Loader should be displayed while fetching the data
+After the data is fetched successfully,
+Movie item details received from the response should be displayed
+Display the list of similar movies received from the response
+If the HTTP GET request made is unsuccessful, then the failure view given in the Figma screens should be displayed
+When the Try Again button is clicked, an HTTP GET request should be made to Movie Item Details API URL
+All the header functionalities mentioned in the Home Route should work in this route accordingly
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Search Route
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+When an authenticated user opens the Search Route
 
-### Code Splitting
+When a value is provided in the search input and the button with the search icon is clicked
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Make an HTTP GET request to the Search Movies API URL with jwt_token in the Cookies and query parameter search with value as the text provided in the search input
+Loader should be displayed while fetching the data
+After the data is fetched successfully, display the list of movies received from the response
+If the HTTP GET request made is unsuccessful, then the failure view given in the Figma screens should be displayed
+When the Try Again button is clicked, an HTTP GET request should be made to Search Movies API URL
+When the HTTP GET request made to the Search Movies API URL returns an empty list for movies then Search no results view should be displayed
+When a Movie item is clicked, then the page should be navigated to the Movie Item Details Route
 
-### Analyzing the Bundle Size
+All the header functionalities mentioned in the Home Route should work in this route accordingly
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Account Route
 
-### Making a Progressive Web App
+When an authenticated user opens the Account Route
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The username which was provided in the login, should be displayed
+The password which was provided in the login, should be displayed in masked
+When the Logout button is clicked, then the page should be navigated to the Login Route
+All the header functionalities mentioned in the Home Route should work in this route accordingly
 
-### Advanced Configuration
+Not Found Route
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+When a random path is provided as the URL, then the page should navigate to the Not Found Route
+Users should be able to view the website responsively in mobile view, tablet view as well
 
-### Deployment
+Quick Tips
+Click to view
+Important Note
+Click to view
+Resources
+Data fetch URLs
+User Credentials
+Click to view user credentials
+Stretch Goals
+If you complete the main features of the project you can try out the below features as well.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Note: Just a reminder the additional functionality is just extra practice using the tools we have learned. These are not required. If you do not reach the stretch goals, don't worry.
 
-### `npm run build` fails to minify
+Additional Functionality to be added
+Project Submission Instructions
+For Mini Projects, you can submit the test cases at your own pace. But we suggest you to submit the code to know the percentage of completion through test cases and that score will be considered for your interviews.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Also it's important to publish your code frequently using Step - 4 in the Instructions tab.
+
+Things to Keep in Mind
+All components you implement should go in the src/components directory.
+Do not remove the pre-filled code
+Want to quickly review some of the concepts you’ve been learning? Take a look at the Cheat Sheets.
